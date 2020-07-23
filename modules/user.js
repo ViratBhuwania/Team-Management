@@ -1,5 +1,5 @@
 var mongoose = require('mongoose')
-mongoose.connect('mongodb+srv://mongodbuser:jokerisback@cluster0.offol.mongodb.net/tm?retryWrites=true&w=majority&ssl=true', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
+mongoose.connect('mongodb+srv://mongodbuser:12345@cluster0.offol.mongodb.net/tm?retryWrites=true&w=majority&ssl=true', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
 var conn = mongoose.connection
 
 var userSchema = new mongoose.Schema({
