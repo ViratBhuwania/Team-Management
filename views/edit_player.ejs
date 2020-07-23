@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+  		<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+                
+                  <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Team Management</a>
+                  </div>
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="/">Home</a></li>
+                    <li><a href="/">Add new player </a>
+                      </li>
+                      <li><a href="/view-all-player">View All Players </a>
+                       </li>
+                        
+                        </ul> 
+        </nav>
+
+
+    <div class="container">
+      <div class="row">
+        <h2 class="text-center"><%= title %></h2>
+          <div id="playerbox" style="margin-top:50px" class="mainbox col-md-8 col-md-offset-3 col-sm-8 col-sm-offset-2">
+              <div class="panel panel-info">
+                  <div class="panel-heading">
+                      <div class="panel-title"> Edit Player</div>
+                       </div>  
+                  <div class="panel-body">
+                  <% if(msg != ''){%>
+                  <p style="text-align: center; color: green"><%= msg %></p>
+                  <% } %>
+                      <form action="/view-all-player/edit/" id="playerForm" class="form-horizontal" method="post"  role="form">
+                          <input type="hidden" name="id" value="<%= id %>">
+                          
+                              
+                          <div class="form-group">
+                              <label for="username" class="col-md-3 control-label">Player Name</label>
+                              <div class="col-md-9">
+                                  <input type="text" class="form-control" name="pname" value="<%= records.playername %>" placeholder="Enter Player's Full Name" required>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                                <label for="age" class="col-md-3 control-label">Age</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="age" value="<%= records.age %>" placeholder="Enter Player's Age" required>
+                                </div>
+                            </div>
+                        
+                        <div class="form-group">
+                                <label for="age" class="col-md-3 control-label">PlayerType</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="player_type" value="<%= records.player_type %>" placeholder="Enter Total Runs" required>
+                                </div>
+                            </div>
+                        <div class="form-group">
+                                <label for="age" class="col-md-3 control-label">Captain</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="capt" value="<%= records.captain %>" placeholder="Enter Total Runs" required>
+                                </div>
+                            </div>
+                       <!-- 
+                     	<div class="form-group">
+                              <label for="type" class="col-md-3 control-label">Player Type</label>
+                              <div class="col-md-9">
+                                  <select class="form-control" name="player_type" value="<%= records.player_type %>">
+                                    <option value="">Choose Type</option>
+                                    <option value="">Batsman</option>
+                                    <option value="">Bowler</option>
+                                    <option value="">Wicket-keeper</option>
+                                    <option value="">All-Rounder</option>
+                                  </select>
+                              </div>
+                          </div>
+
+                          <div class="form-group">
+                              <label for="captain" class="col-md-3 control-label">Captain</label>
+                              <div class="col-md-9">
+                                  <select class="form-control" name="capt" value="<%= records.captain %>">
+                                    <option value="">Choose</option>
+                                    <option value="">Yes</option>
+                                    <option value="">No</option>
+                                  </select>
+                              </div>
+                          </div>-->
+						
+                        <div class="form-group">
+                                <label for="age" class="col-md-3 control-label">Total Runs</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="runs" value="<%= records.total_runs %>" placeholder="Enter Total Runs" required>
+                                </div>
+                            </div>
+
+                        <div class="form-group">
+                                <label for="strike-rate" class="col-md-3 control-label">Strike Rate</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="strike_rate" value="<%= records.strike_rate %>" placeholder="Enter Strike Rate" required="">
+                                </div>
+                            </div>
+
+                        <div class="form-group">
+                                <label for="average" class="col-md-3 control-label">Batting Average</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="avg" value="<%= records.average %>" placeholder="Enter Player's Average">
+                                </div>
+                            </div>
+
+                        <div class="form-group">
+                                <label for="wicket" class="col-md-3 control-label">Total Wickets</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="wicket" value="<%= records.wicket %>" placeholder="Enter Total Wickets">
+                                </div>
+                            </div>
+                        
+						
+						 
+
+                          <div class="form-group">
+                                <label for="economy" class="col-md-3 control-label">Bowler's Economy</label>
+                                <div class="col-md-9">
+                                    <input type="economy" class="form-control" name="economy" value="<%= records.economy %>" placeholder="Enter bowler's economy">
+                                </div>
+                            </div>
+
+                          <div class="form-group">
+                              <!-- Button -->                                        
+                              <div class="col-md-offset-3 col-md-9">
+                              <input type="submit" name="submit" value="Add Player" class="btn btn-primary">   
+                              </div>
+                          </div>
+                          
+                          <p>View All Players: <a href="/view-all-player">Click Here</a></p>
+                           
+                          
+                          
+                          
+                      </form>
+                   </div>
+              </div>
